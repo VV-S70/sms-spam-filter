@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galaxy SMS Spam Detector</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        body {
+            background: linear-gradient(-45deg, #050212, #2c0a48, #3e1572, #1f2e69, #0c3260, #09041a);
+            background-size: 400% 400%;
+            animation: gradientAnimation 8s ease infinite;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .star-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            background: white;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 0 5px white, 0 0 10px white;
+            opacity: 0.2;
+        }
+
+        .star-m { width: 3px; height: 3px; }
+        .star-m-1 { animation: blink-1 1s infinite alternate; }
+        .star-m-2 { animation: blink-2 1.5s infinite alternate; }
+        .star-m-3 { animation: blink-1 2s infinite alternate; }
+
+        .star-s { width: 1.5px; height: 1.5px; }
+        .star-s-1 { animation: blink-1 0.8s infinite alternate; }
+        .star-s-2 { animation: blink-2 1.2s infinite alternate; }
+        .star-s-3 { animation: blink-1 1.6s infinite alternate; }
+
+        @keyframes blink-1 {
+            0% { opacity: 0.2; }
+            10% { opacity: 1; }
+            20% { opacity: 0.2; }
+            100% { opacity: 0.2; }
+        }
+
+        @keyframes blink-2 {
+            0% { opacity: 0.5; }
+            50% { opacity: 0.9; }
+            100% { opacity: 0.5; }
+        }
+
+    </style>
+</head>
+<body class="flex items-center justify-center p-4">
+
+    <div class="star-container">
+        <!-- Dense pattern of diverse star classes, blinking at different rates -->
+        <div class="star star-s star-s-1" style="top: 10%; left: 5%;"></div>
+        <div class="star star-m star-m-2" style="top: 15%; left: 10%;"></div>
+        <div class="star star-s star-s-2" style="top: 25%; left: 20%;"></div>
+        <div class="star star-m star-m-1" style="top: 20%; left: 35%;"></div>
+        <div class="star star-s star-s-3" style="top: 30%; left: 45%;"></div>
+        <div class="star star-m star-m-3" style="top: 10%; left: 60%;"></div>
+        <div class="star star-s star-s-1" style="top: 15%; left: 75%;"></div>
+        <div class="star star-m star-m-2" style="top: 25%; left: 90%;"></div>
+
+        <div class="star star-s star-s-2" style="top: 40%; left: 8%;"></div>
+        <div class="star star-m star-m-1" style="top: 45%; left: 22%;"></div>
+        <div class="star star-s star-s-3" style="top: 55%; left: 38%;"></div>
+        <div class="star star-m star-m-3" style="top: 50%; left: 52%;"></div>
+        <div class="star star-s star-s-1" style="top: 45%; left: 68%;"></div>
+        <div class="star star-m star-m-2" style="top: 55%; left: 82%;"></div>
+        <div class="star star-s star-s-2" style="top: 65%; left: 95%;"></div>
+
+        <div class="star star-s star-s-3" style="top: 75%; left: 5%;"></div>
+        <div class="star star-m star-m-1" style="top: 80%; left: 15%;"></div>
+        <div class="star star-s star-s-2" style="top: 90%; left: 25%;"></div>
+        <div class="star star-m star-m-3" style="top: 85%; left: 40%;"></div>
+        <div class="star star-s star-s-1" style="top: 95%; left: 55%;"></div>
+        <div class="star star-m star-m-2" style="top: 85%; left: 70%;"></div>
+        <div class="star star-s star-s-3" style="top: 90%; left: 85%;"></div>
+        <div class="star star-m star-m-1" style="top: 75%; left: 98%;"></div>
+    </div>
+
+    <div class="bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl max-w-lg w-full p-8 border border-white/20 animate-fade relative z-10">
+        
+        <div class="absolute top-4 left-4 p-2 animate-fade">
+            <img src="/logo.png" alt="Galaxy Logo" class="h-12 w-auto border border-white/10 p-1 rounded-lg backdrop-blur-sm">
+        </div>
+        <!-- Header Section -->
+        <div class="text-center mb-6 pt-16">
+            <span class="bg-indigo-100 text-indigo-700 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Machine Learning Project</span>
+            <h1 class="text-3xl font-extrabold text-gray-900 mt-2">🛡️ Smart Spam Filter</h1>
+            <p class="text-gray-500 text-sm mt-1">Paste any text message below to check if it's safe or spam using Machine Learning.</p>
+        </div>
+
+        <!-- Form Section -->
+        <form action="/predict" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Enter SMS Message:</label>
+                <textarea name="message" rows="4" required
+                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition text-gray-700 placeholder-gray-400 resize-none"
+                    placeholder="e.g. Congratulations! You won a free iPhone..."></textarea>
+            </div>
+            
+            <button type="submit" 
+                class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:from-indigo-700 hover:to-purple-700 transition duration-300 transform active:scale-95">
+                Analyze Message 🚀
+            </button>
+        </form>
+
+        <!-- Result Box (Appears only when prediction is made) -->
+        {% if prediction %}
+            <div class="mt-6 p-4 rounded-xl animate-fade text-center 
+                {% if 'SPAM 🚨' in prediction %} bg-red-50 border border-red-200 text-red-700 
+                {% else %} bg-emerald-50 border border-emerald-200 text-emerald-700 {% endif %}">
+                
+                <p class="text-xs font-bold uppercase tracking-wide opacity-75">Analysis Result</p>
+                <p class="text-xl font-black mt-1">{{ prediction }}</p>
+                <div class="mt-2 text-xs text-gray-600 bg-white/80 p-2 rounded-lg border border-gray-200 inline-block max-w-full truncate">
+                    "{{ original_text }}"
+                </div>
+            </div>
+        {% endif %}
+
+        <!-- Footer Note -->
+        <div class="text-center mt-6 text-xs text-gray-400">
+            Powered by Python, Flask & Scikit-Learn (Naive Bayes)
+        </div>
+
+    </div>
+
+</body>
+</html>
