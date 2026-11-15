@@ -8,17 +8,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade {
-            animation: fadeIn 0.5s ease-out forwards;
-        }
-        /* Custom glowing gradient background */
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-        }
+           from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+    /* Animated Cosmic Background */
+    body {
+        background: linear-gradient(-45deg, #100c2f, #1e3a8a, #0d1e3e, #0c0b1a);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+        min-height: 100vh;
+    }
+    @keyframes gradientAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
     </style>
 </head>
 <body class="flex items-center justify-center p-4">
