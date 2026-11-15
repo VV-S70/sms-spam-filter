@@ -23,7 +23,12 @@ X_train_dtm = vect.fit_transform(X_train)
 clf = MultinomialNB()
 clf.fit(X_train_dtm, y_train)
 
+from flask import send_from_directory
 
+@app.route('/logo.png')
+def logo():
+    return send_from_directory(os.getcwd(), 'logo.png')
+  
 @app.route("/")
 def home():
   return render_template("index.html")
