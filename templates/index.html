@@ -154,5 +154,18 @@
 
     </div>
 
+    <script>
+        // Making the Enter key submit the form (Shift+Enter still creates a new line)
+        const textarea = document.querySelector('textarea[name="message"]');
+        if (textarea) {
+            textarea.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault(); // This prevents a blank new line
+                    this.form.submit(); // This submits the form instantly
+                }
+            });
+        }
+    </script>
+    
 </body>
 </html>
