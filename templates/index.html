@@ -128,15 +128,32 @@
                     placeholder="e.g. Congratulations! You won a free iPhone..."></textarea>
             </div>
 
-           <div class="flex flex-wrap gap-2 text-xs">
+           <!-- Samples -->
+            <div class="flex flex-wrap gap-2 text-xs">
                 <span class="text-purple-200/80 self-center font-medium mr-1">Quick Test:</span>
+                
+                <!-- Spam Sample 1 -->
                 <button type="button" onclick="fillSample('Congratulations! You have won a free iPhone 15 Pro and 50000 INR cash prize. Click here to claim now!')"
                     class="bg-red-500/20 hover:bg-red-500/40 text-red-200 border border-red-400/30 px-2.5 py-1 rounded-full transition">
-                    🚨 Spam Sample
+                    🚨 Spam (You won a Prize)
                 </button>
+
+                <!-- Spam Sample 2 -->
+                <button type="button" onclick="fillSample('URGENT! Your SBI Bank account has been blocked. Update your PAN card and KYC immediately via bit.ly/update-sbi-kyc')"
+                    class="bg-red-500/20 hover:bg-red-500/40 text-red-200 border border-red-400/30 px-2.5 py-1 rounded-full transition">
+                    🚨 Spam (Update yor Bank/KYC details)
+                </button>
+
+                <!-- Safe Sample 1 -->
                 <button type="button" onclick="fillSample('Hey! Are we still meeting for lunch at 1 PM today? Let me know.')"
                     class="bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-200 border border-emerald-400/30 px-2.5 py-1 rounded-full transition">
-                    ✅ Safe Sample
+                    ✅ Safe (Lunch Meeting confirmation)
+                </button>
+
+                <!-- Safe Sample 2 -->
+                <button type="button" onclick="fillSample('Bro, please send me the PDF notes for tomorrow morning data structures lecture when you reach home.')"
+                    class="bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-200 border border-emerald-400/30 px-2.5 py-1 rounded-full transition">
+                    ✅ Safe (Asking for notes)
                 </button>
             </div>
             
