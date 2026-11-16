@@ -134,7 +134,7 @@
             </button>
         </form>
 
-        <!-- Result Box (Appears only when prediction is made) -->
+<!-- Result Box (Appears only when prediction is made) -->
         {% if prediction %}
             <div class="mt-6 p-4 rounded-xl animate-fade text-center 
                 {% if 'SPAM 🚨' in prediction %} bg-red-50 border border-red-200 text-red-700 
@@ -142,6 +142,14 @@
                 
                 <p class="text-xs font-bold uppercase tracking-wide opacity-75">Analysis Result</p>
                 <p class="text-xl font-black mt-1">{{ prediction }}</p>
+                
+                <!-- Confidence Score Badge -->
+                {% if confidence %}
+                <div class="mt-2 inline-block bg-purple-900/80 border border-purple-400 text-purple-100 text-xs px-3 py-1 rounded-full shadow-inner font-medium">
+                    ✨ Model Confidence: <span class="font-bold text-white">{{ confidence }}%</span>
+                </div>
+                {% endif %}
+
                 <div class="mt-2 text-xs text-gray-600 bg-white/80 p-2 rounded-lg border border-gray-200 inline-block max-w-full truncate">
                     "{{ original_text }}"
                 </div>
