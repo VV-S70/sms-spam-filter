@@ -48,11 +48,20 @@ def predict():
     message = request.form["message"]
     data = [message]
     vect_data = vect.transform(data)
+    
     my_prediction = clf.predict(vect_data)
+      
+    probs = clf.predict_proba(vect_data)[0]
+    confidence = round(float(max(probs)) * 100, 2)
 
     result = "SPAM 🚨" if my_prediction[0] == 1 else "NOT SPAM (Safe) ✅"
+    
     return render_template(
-        "index.html", prediction=result, original_text=message, accuracy=model_accuracy
+        "index.html", 
+        prediction=result, 
+        original_text=message, 
+        accuracy=model_accuracy,
+        confidence=confidence
     )
 
 
