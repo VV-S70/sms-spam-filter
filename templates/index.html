@@ -144,17 +144,30 @@
                     🚨 Spam (Update yor Bank/KYC details)
                 </button>
 
+                <!-- Spam Sample 3 -->
+                <button type="button" onclick="fillSample('ALERT: Your credit card bill of Rs 24,999 is due today. Pay now to avoid late fees: pay-secure-bill.com')"
+                    class="bg-red-500/20 hover:bg-red-500/40 text-red-200 border border-red-400/30 px-2.5 py-1 rounded-full transition">
+                    🚨 Spam (Pay Credit Card Bill on this link)
+                </button>
+
                 <!-- Safe Sample 1 -->
                 <button type="button" onclick="fillSample('Hey! Are we still meeting for lunch at 1 PM today? Let me know.')"
                     class="bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-200 border border-emerald-400/30 px-2.5 py-1 rounded-full transition">
-                    ✅ Safe (Lunch Meeting confirmation)
+                    ✅ Safe (Lunch Meeting Confirmation)
                 </button>
 
                 <!-- Safe Sample 2 -->
                 <button type="button" onclick="fillSample('Bro, please send me the PDF notes for tomorrow morning data structures lecture when you reach home.')"
                     class="bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-200 border border-emerald-400/30 px-2.5 py-1 rounded-full transition">
-                    ✅ Safe (Asking for notes)
+                    ✅ Safe (Asking for Notes)
                 </button>
+
+                <!-- Safe Sample 3 -->
+                <button type="button" onclick="fillSample('Hey Mom, I reached hostel safely. Will call you after finishing dinner.')"
+                    class="bg-emerald-500/20 hover:bg-emerald-500/40 text-emerald-200 border border-emerald-400/30 px-2.5 py-1 rounded-full transition">
+                    ✅ Safe (Family)
+                </button>
+                
             </div>
             
             <button type="submit" 
@@ -217,7 +230,7 @@
 
     <!-- For Model Accuracy (based on test data) Badge on site -->
     <div class="fixed bottom-3 right-4 z-20 text-sm text-white/75 bg-white/10 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-lg">
-        Model Accuracy (Test Dataset): <span class="font-semibold text-white">{{ accuracy }}%</span>
+        Model Accuracy (Test Dataset) : <span class="font-semibold text-white">{{ accuracy }}%</span>
     </div>
     
 </body>
