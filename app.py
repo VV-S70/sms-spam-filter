@@ -2,6 +2,7 @@ import os
 import pandas as pd
 from flask import Flask, render_template, request
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 
@@ -19,9 +20,15 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
 
 vect = CountVectorizer()
 X_train_dtm = vect.fit_transform(X_train)
+X_test_dtm = vect.transform(X_test)
 
 clf = MultinomialNB()
 clf.fit(X_train_dtm, y_train)
+
+# To Calculate accuracy
+y_pred = clf.predict(X_test_dtm)
+model_accuracy = round(accuracy_score(y_test, y_pred) * 100, 2)
+print(f"\n---> Model Accuracy: {model_accuracy}% <--- \n")
 
 from flask import send_from_directory
 
@@ -31,7 +38,8 @@ def logo():
   
 @app.route("/")
 def home():
-  return render_template("index.html")
+  # Passing accuracy to index.html
+  return render_template("index.html", accuracy=model_accuracy)
 
 
 @app.route("/predict", methods=["POST"])
@@ -44,7 +52,7 @@ def predict():
 
     result = "SPAM 🚨" if my_prediction[0] == 1 else "NOT SPAM (Safe) ✅"
     return render_template(
-        "index.html", prediction=result, original_text=message
+        "index.html", prediction=result, original_text=message, accuracy=model_accuracy
     )
 
 
