@@ -1,3 +1,11 @@
+import ssl
+try:
+    _create_unverified_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_context
+
 import os
 import pandas as pd
 from flask import Flask, render_template, request
