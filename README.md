@@ -66,7 +66,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-**Open in Browser:**
+**Open in Browser:**                                             
 Navigate to http://127.0.0.1:5000/ in your web browser.
 
 ## 🛡️ License
