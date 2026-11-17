@@ -51,20 +51,22 @@ sms-spam-filter/
 ## ⚙️ Local Installation & Running Guide
 If you want to run or test this project locally on your machine, follow these steps:
 
-Clone the Repository:
-
-Bash
-git clone [https://github.com/VV-S70/sms-spam-filter.git](https://github.com/VV-S70/sms-spam-filter.git)
-cd sms-spam-filter
-Install Dependencies:
-
-Bash
+**Clone the Repository: **
+   ```bash
+   git clone [https://github.com/VV-S70/sms-spam-filter.git](https://github.com/VV-S70/sms-spam-filter.git)
+   cd sms-spam-filter
+   ```
+**Install Dependencies: **
+```bash
 pip install -r requirements.txt
-Run the Flask App:
+```
 
-Bash
+**Run the Flask App: **
+```bash
 python app.py
-Open in Browser:
+```
+
+**Open in Browser: **
 Navigate to http://127.0.0.1:5000/ in your web browser.
 
 ## 🛡️ License
